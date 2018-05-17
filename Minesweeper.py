@@ -145,20 +145,6 @@ class MineField(object):
         for i in range(0, len(self.__board), 1):
             for j in range(0, len(self.__board[0]), 1):
                 minesAmount = 0
-                # for x in range(0,3):
-                #     for y in range (0, 3):
-                #         try:
-                #             if x == 1:
-                #                 if y == 1:
-                #                     raise IndexError("its this field")
-                #             if self.__board[i+1-y][j+1-x].hasMine(): # [j+1-x] = j+1, j, j-1
-                #                 minesAmount+=1 # [i+1-y] = i+1, i, i-1
-                #         except IndexError as e:
-                #             print(i," ", j, " ", e)
-                #             pass
-                # self.__board[i][j].setMineAmount(minesAmount)
-                #all this below can be replaced with this, but sth wrong with 1st column
-
                 if i == 0:
                     if j == 0:
                         if(self.hasMine(i, j+1)):
@@ -346,7 +332,7 @@ class Minesweeper(tk.Frame):
             self.xyz = [0, 0, 0]
 
         if self.xyz[0] == 1 and self.xyz[1] == 2 and self.xyz[2] == 2:
-            saper.showCheats()
+            self.showCheats()
 
 
     def endGame(self):
@@ -425,5 +411,5 @@ class Minesweeper(tk.Frame):
 
 
 root = tk.Tk()
-saper = Minesweeper(master=root)
-saper.mainloop()
+app = Minesweeper(master=root)
+app.mainloop()
